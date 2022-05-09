@@ -1,0 +1,23 @@
+.launch-item-container {
+  margin: 2rem 0;
+  width: 100%;
+  display: flex;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgb(179, 179, 179);
+  &__photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    img {
+      width: 8rem;
+    }
+  }
+  &__information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}

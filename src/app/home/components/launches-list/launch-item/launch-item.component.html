@@ -1,0 +1,11 @@
+<div class="launch-item-container">
+  <div class="launch-item-container__photo-container">
+    <img [src]="launch.links.patch.small" alt="" />
+  </div>
+  <div class="launch-item-container__information">
+    <p>#{{ launch.flight_number }}</p>
+    <p>{{ launch.name }}</p>
+    <p>{{ launch.date_utc | date }}</p>
+    <button mat-stroked-button color="primary">View More</button>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<ng-container *ngIf="launchesList$ | async as launchesList">
+  <div class="list-container" *ngFor="let launch of launchesList">
+    <app-launch-item [launch]="launch"></app-launch-item>
+  </div>
+</ng-container>

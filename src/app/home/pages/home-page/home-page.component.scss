@@ -1,0 +1,20 @@
+h1 {
+  font-weight: bold;
+  font-size: 3rem;
+  position: relative;
+  margin: 2rem 0;
+  span{
+      color: #6f3bb8;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    top: -10px;
+    background-color: #6f3bb8;
+  }
+}
+p {
+  color: rgb(116, 116, 116);
+}

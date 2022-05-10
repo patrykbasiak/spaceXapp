@@ -1,7 +1,9 @@
 import { Launch } from './../../../shared/models/launch.model';
 import { Observable } from 'rxjs';
-import { LaunchingService } from './../../../shared/services/launching.service';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { getAllLaunches } from 'src/app/store/launches.actions';
+import { getLaunches } from 'src/app/store/launches.selctors';
 import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-launches-list',
@@ -10,13 +12,12 @@ import { map } from 'rxjs/operators';
 })
 export class LaunchesListComponent implements OnInit {
   launchesList$!: Observable<Launch[]>;
-  constructor(private launchingService: LaunchingService) {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.launchesList$ = this.launchingService.getAllLaunches(10).pipe(
-      map((launchesPaginator) => {
-        return launchesPaginator.docs;
-      })
-    );
+    this.store.dispatch(getAllLaunches({ page: 2 }));
+    this.launchesList$ = this.store
+      .select(getLaunches)
+      .pipe(map((launchesPaginator) => launchesPaginator?.docs));
   }
 }

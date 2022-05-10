@@ -1,1 +1,20 @@
-<p>launch-page works!</p>
+<div class="content-wrapper">
+  <div class="header">
+    <img
+      class="header__icon"
+      src="assets/images/icons/back-icon.svg"
+      alt="Back"
+      routerLink="/home"
+    />
+    <p class="header__title">Launch <span>#31</span> Details</p>
+  </div>
+  <div class="line"></div>
+  <app-launch-details
+  
+   [launch]="launch" [rocket]="rocket" [launchpad]="launchpad"></app-launch-details>
+  <app-photo-gallery
+    *ngIf="rocket?.flickr_images"
+    [images]="rocket.flickr_images"
+  ></app-photo-gallery>
+  <app-launch-description></app-launch-description>
+</div>

@@ -12,7 +12,7 @@ export interface Launch {
   flight_number: number;
   id: string;
   launch_library_id: string;
-  lunchpad: string;
+  launchpad: string;
   links: Links;
   name: string;
   net: boolean;

@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { Launch } from '../models/launch.model';
 import { environment } from 'src/environments/environment';
 import { Constants } from '../constants';
+import { Rocket } from '../models/rocket.model';
+import { Launchpad } from '../models/launchpad.model';
 export interface QueryModel {
   name?: string;
   startDate?: string;
@@ -19,8 +21,6 @@ export class LaunchingService {
   itemsOnPage = Constants.paginatorConstants.defaultPageSize;
   constructor(private http: HttpClient) {}
   getAllLaunches(page: number, size?: number): Observable<Paginator<Launch>> {
-    console.log(size);
-
     return this.http.post<Paginator<Launch>>(`${this.url}/launches/query`, {
       options: {
         page: page,
@@ -34,7 +34,6 @@ export class LaunchingService {
     size?: number
   ): Observable<Paginator<Launch>> {
     const query = this.filterParams(queryParams);
-
     return this.http.post<Paginator<Launch>>(`${this.url}/launches/query`, {
       options: {
         page: 1,
@@ -42,6 +41,17 @@ export class LaunchingService {
       },
       query,
     });
+  }
+
+  getLaunchById(id: string): Observable<Launch> {
+    return this.http.get<Launch>(`${this.url}/launches/${id}`);
+  }
+  getRocketById(id: string): Observable<Rocket> {
+    return this.http.get<Rocket>(`${this.url}/rockets/${id}`);
+  }
+
+  getLaunchpadById(id: string): Observable<Launchpad> {
+    return this.http.get<Launchpad>(`${this.url}/launchpads/${id}`);
   }
 
   private filterParams(queryParams: QueryModel): QueryModel {

@@ -1,0 +1,12 @@
+<div class="details-wrapper">
+  <div class="container">
+    <p>Flight: {{ launch?.name }}</p>
+    <p>Flight Date: {{ launch?.date_utc | date }}</p>
+    <p>Status: {{ launch?.success ? "Successful" : "Unsuccessful" }}</p>
+  </div>
+  <div class="container">
+    <p>Crew: {{ launch?.crew.length }}</p>
+    <p>Rocket: {{rocket?.name}}</p>
+    <p>Start: {{launchpad.full_name}}, {{launchpad.locality}}</p>
+  </div>
+</div>

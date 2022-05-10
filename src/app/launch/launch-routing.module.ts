@@ -1,10 +1,11 @@
+import { LaunchPageComponent } from './pages/launch-page/launch-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [{ path: ':id', component: LaunchPageComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class LaunchRoutingModule { }
+export class LaunchRoutingModule {}

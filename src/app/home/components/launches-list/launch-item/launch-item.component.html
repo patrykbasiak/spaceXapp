@@ -6,6 +6,12 @@
     <p>#{{ launch.flight_number }}</p>
     <p>{{ launch.name }}</p>
     <p>{{ launch.date_utc | date }}</p>
-    <button mat-stroked-button color="primary">View More</button>
+    <button
+      mat-stroked-button
+      color="primary"
+      [routerLink]="['/launch', launch.id]"
+    >
+      View More
+    </button>
   </div>
 </div>

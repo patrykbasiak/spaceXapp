@@ -1,4 +1,4 @@
-<form class="form-container" [formGroup]="searchForm">
+<form class="form-container" [formGroup]="searchForm" (ngSubmit)="onSearch()">
   <div class="form-container__inputs">
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Launch Name</mat-label>
@@ -26,7 +26,12 @@
     </mat-checkbox>
   </div>
   <div>
-    <button (click)="search()" mat-stroked-button color="primary">
+    <button
+      *ngIf="searchForm.dirty"
+      type="submit"
+      mat-stroked-button
+      color="primary"
+    >
       Search
     </button>
     <button

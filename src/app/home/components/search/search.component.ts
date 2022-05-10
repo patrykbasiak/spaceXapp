@@ -23,7 +23,7 @@ export class SearchComponent {
     success: [null],
   });
 
-  search() {
+  onSearch() {
     const query: QueryModel = {
       startDate: this.searchForm.controls.startDate.value,
       endDate: this.searchForm.controls.endDate.value,

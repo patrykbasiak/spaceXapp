@@ -14,6 +14,7 @@ import { LaunchItemComponent } from './components/launches-list/launch-item/laun
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatCheckboxModule,
     MatButtonModule,
     ReactiveFormsModule,
+    MatPaginatorModule,
   ],
 })
 export class HomeModule {}

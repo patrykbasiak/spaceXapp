@@ -16,14 +16,16 @@ export class LaunchesEffects {
     return this.actions$.pipe(
       ofType(Action.getAllLaunches),
       switchMap((action) => {
-        return this.launchingService.getAllLaunches(action.page).pipe(
-          map((launches) => {
-            return Action.getAllLauchesSuccess({ launches });
-          }),
-          catchError((err) => {
-            return of(Action.getAllLaunchesByQueryFail({ error: err }));
-          })
-        );
+        return this.launchingService
+          .getAllLaunches(action.page, action.size)
+          .pipe(
+            map((launches) => {
+              return Action.getAllLauchesSuccess({ launches });
+            }),
+            catchError((err) => {
+              return of(Action.getAllLaunchesByQueryFail({ error: err }));
+            })
+          );
       })
     );
   });
@@ -32,14 +34,16 @@ export class LaunchesEffects {
     return this.actions$.pipe(
       ofType(Action.getAllLaunchesByQuery),
       switchMap((action) => {
-        return this.launchingService.getLaunchesByQuerry(action.query).pipe(
-          map((launches) => {
-            return Action.getAllLauchesByQuerySuccess({ launches });
-          }),
-          catchError((err) => {
-            return of(Action.getAllLaunchesByQueryFail({ error: err }));
-          })
-        );
+        return this.launchingService
+          .getLaunchesByQuerry(action.query, action.page, action.size)
+          .pipe(
+            map((launches) => {
+              return Action.getAllLauchesByQuerySuccess({ launches });
+            }),
+            catchError((err) => {
+              return of(Action.getAllLaunchesByQueryFail({ error: err }));
+            })
+          );
       })
     );
   });

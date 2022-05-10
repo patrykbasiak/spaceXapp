@@ -1,5 +1,14 @@
 <ng-container *ngIf="launchesList$ | async as launchesList">
-  <div class="list-container" *ngFor="let launch of launchesList">
+  <div class="list-container" *ngFor="let launch of launchesList.docs">
     <app-launch-item [launch]="launch"></app-launch-item>
   </div>
+  <mat-paginator
+    (page)="handlePageEvent($event)"
+    [length]="launchesList.totalDocs"
+    [pageSizeOptions]="pageSizeOptions"
+    [pageIndex]="pageIndex"
+    [pageSize]="pageSize"
+    aria-label="Select page"
+  >
+  </mat-paginator>
 </ng-container>

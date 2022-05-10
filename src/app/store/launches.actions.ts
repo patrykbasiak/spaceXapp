@@ -19,7 +19,7 @@ export const GET_ALL_LAUNCHES_BY_QUERY_FAIL =
 
 export const getAllLaunches = createAction(
   GET_ALL_LAUNCHES,
-  props<{ page: number }>()
+  props<{ page: number; size: number }>()
 );
 export const getAllLauchesSuccess = createAction(
   GET_ALL_LAUNCHES_SUCCESS,
@@ -32,7 +32,7 @@ export const getAllLaunchesFail = createAction(
 
 export const getAllLaunchesByQuery = createAction(
   GET_ALL_LAUNCHES_BY_QUERY,
-  props<{ query: QueryModel }>()
+  props<{ query: QueryModel, page: number, size: number }>()
 );
 export const getAllLauchesByQuerySuccess = createAction(
   GET_ALL_LAUNCHES_BY_QUERY_SUCCESS,

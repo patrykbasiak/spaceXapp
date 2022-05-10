@@ -7,8 +7,11 @@
   padding: 0;
   border: 0;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
-  font-family: "Poppins"!important;
+  font-family: "Poppins" !important;
   background-color: rgb(231, 231, 231);
 }
 h1 {
@@ -35,5 +38,11 @@ p {
   font-size: 1.2em;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Launch } from '../models/launch.model';
+import { environment } from 'src/environments/environment';
+import { Constants } from '../constants';
 export interface QueryModel {
   name?: string;
   startDate?: string;
@@ -13,23 +15,30 @@ export interface QueryModel {
   providedIn: 'root',
 })
 export class LaunchingService {
-  url = 'https://api.spacexdata.com/v4';
-  itemsOnPage = 20;
+  url = environment.spaceXurl;
+  itemsOnPage = Constants.paginatorConstants.defaultPageSize;
   constructor(private http: HttpClient) {}
-  getAllLaunches(page: number): Observable<Paginator<Launch>> {
+  getAllLaunches(page: number, size?: number): Observable<Paginator<Launch>> {
+    console.log(size);
+
     return this.http.post<Paginator<Launch>>(`${this.url}/launches/query`, {
       options: {
         page: page,
-        limit: this.itemsOnPage,
+        limit: size ? size : this.itemsOnPage,
       },
     });
   }
-  getLaunchesByQuerry(queryParams: QueryModel): Observable<Paginator<Launch>> {
+  getLaunchesByQuerry(
+    queryParams: QueryModel,
+    page?: number,
+    size?: number
+  ): Observable<Paginator<Launch>> {
     const query = this.filterParams(queryParams);
+
     return this.http.post<Paginator<Launch>>(`${this.url}/launches/query`, {
       options: {
         page: 1,
-        limit: this.itemsOnPage,
+        limit: size ? size : this.itemsOnPage,
       },
       query,
     });
@@ -38,7 +47,14 @@ export class LaunchingService {
   private filterParams(queryParams: QueryModel): QueryModel {
     const query: any = {};
     Object.entries(queryParams).forEach(([key, value]) => {
-      value ? (query[key] = value) : null;
+      key === 'startDate' && value
+        ? (query['date_utc'] = { $gte: value })
+        : null;
+      key === 'endDate' && value
+        ? (query['date_utc'] = { ...query['date_utc'], $lte: value })
+        : null;
+      key === 'name' && value ? (query['name'] = value) : null;
+      key === 'success' && value ? (query['success'] = value) : null;
     });
     return query;
   }

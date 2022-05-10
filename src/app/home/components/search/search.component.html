@@ -11,7 +11,11 @@
     ><mat-form-field appearance="fill">
       <mat-label>Enter a date range</mat-label>
       <mat-date-range-input [rangePicker]="picker">
-        <input formControlName="startDate" matStartDate placeholder="Start date" />
+        <input
+          formControlName="startDate"
+          matStartDate
+          placeholder="Start date"
+        />
         <input formControlName="endDate" matEndDate placeholder="End date" />
       </mat-date-range-input>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -21,6 +25,17 @@
       Show Successful Flights
     </mat-checkbox>
   </div>
-
-  <button (click)="search()" mat-stroked-button color="primary">Search</button>
+  <div>
+    <button (click)="search()" mat-stroked-button color="primary">
+      Search
+    </button>
+    <button
+      *ngIf="isSearchActive"
+      (click)="clear()"
+      mat-flat-button
+      color="primary"
+    >
+      Clear
+    </button>
+  </div>
 </form>

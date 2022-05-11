@@ -25,6 +25,9 @@ export class LaunchingService {
       options: {
         page: page,
         limit: size ? size : this.itemsOnPage,
+        sort: {
+          date_utc: 'desc',
+        },
       },
     });
   }

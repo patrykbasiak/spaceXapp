@@ -1,8 +1,17 @@
 # SpaceXapp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.3.
-
-## Development server
+App uses spaceX-API to show information about spaceX rockets launches. 
+Technologies and tools used:
+* Angular 12 as framework
+* NgRx
+* RxJS
+* Angular Material
+* Lazy Loading
+* Scss
+## Online App
+https://space-x-launch.netlify.app/home
+## Development serve
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 

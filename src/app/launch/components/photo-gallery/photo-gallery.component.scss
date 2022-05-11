@@ -1,7 +1,12 @@
 .gallery-wrapper {
   margin: 3rem 2rem;
-  display: flex;
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: 0 0 1rem rgb(179, 179, 179);
+}
+gallery {
+  background-color: #e7e7e700;
+}
+
+::ng-deep gallery-nav svg {
+  background-color: rgb(173, 173, 173)!important;
 }

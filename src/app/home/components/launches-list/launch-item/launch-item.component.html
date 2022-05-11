@@ -3,9 +3,19 @@
     <img [src]="launch.links.patch.small" alt="" />
   </div>
   <div class="launch-item-container__information">
-    <p>#{{ launch.flight_number }}</p>
-    <p>{{ launch.name }}</p>
-    <p>{{ launch.date_utc | date }}</p>
+    <div class="info">
+      <img src="assets/images/icons/hash.png" alt="Number" class="info__icon" />
+      <p class="info__text">{{ launch.flight_number }}</p>
+    </div>
+    <div class="info">
+      <img src="assets/images/icons/rocket.png" alt="Name" class="info__icon" />
+      <p class="info__text">{{ launch.name }}</p>
+    </div>
+    <div class="info">
+      <img src="assets/images/icons/calendar.png" alt="Date" class="info__icon" />
+      <p class="info__text">{{ launch.date_utc | date }}</p>
+    </div>
+
     <button
       mat-stroked-button
       color="primary"

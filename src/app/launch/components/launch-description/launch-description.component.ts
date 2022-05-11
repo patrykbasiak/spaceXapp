@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-launch-description',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./launch-description.component.scss']
 })
 export class LaunchDescriptionComponent implements OnInit {
-
+  @Input() description!:[string, string, string];
   constructor() { }
 
   ngOnInit(): void {

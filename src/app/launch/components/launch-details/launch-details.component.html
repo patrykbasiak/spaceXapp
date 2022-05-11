@@ -1,12 +1,54 @@
 <div class="details-wrapper">
   <div class="container">
-    <p>Flight: {{ launch?.name }}</p>
-    <p>Flight Date: {{ launch?.date_utc | date }}</p>
-    <p>Status: {{ launch?.success ? "Successful" : "Unsuccessful" }}</p>
+    <div class="info">
+      <img
+        class="info__icon"
+        src="assets/images/icons/aeroplane.png"
+        alt="Flight"
+      />
+      <p class="info__text">Flight: {{ launch?.name }}</p>
+    </div>
+    <div class="info">
+      <img
+        class="info__icon"
+        src="assets/images/icons/calendar.png"
+        alt="Date"
+      />
+      <p class="info__text">Flight Date: {{ launch?.date_utc | date }}</p>
+    </div>
+    <div class="info">
+      <img
+        class="info__icon"
+        src="assets/images/icons/check-list.png"
+        alt="Date"
+      />
+      <p class="info__text">
+        Status: {{ launch?.success ? "Successful" : "Unsuccessful" }}
+      </p>
+    </div>
   </div>
   <div class="container">
-    <p>Crew: {{ launch?.crew.length }}</p>
-    <p>Rocket: {{rocket?.name}}</p>
-    <p>Start: {{launchpad.full_name}}, {{launchpad.locality}}</p>
+    <div class="info">
+      <img class="info__icon" src="assets/images/icons/team.png" alt="Crew" />
+      <p class="info__text">Crew: {{ launch?.crew.length }}</p>
+    </div>
+    <div class="info">
+      <img
+        class="info__icon"
+        src="assets/images/icons/rocket.png"
+        alt="Rocket"
+      />
+      <p class="info__text">Rocket: {{ rocket?.name }}</p>
+    </div>
+    <div class="info">
+      <img
+        class="info__icon"
+        src="assets/images/icons/location.png"
+        alt="Location"
+      />
+      <p class="info__text">
+        Start: {{ launchpad?.full_name }}, {{ launchpad?.locality }}
+      </p>
+    </div>
   </div>
 </div>

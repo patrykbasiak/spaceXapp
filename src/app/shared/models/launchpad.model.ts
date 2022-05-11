@@ -4,4 +4,5 @@ export interface Launchpad {
   full_name: string;
   locality: string;
   region: string;
+  details: string;
 }

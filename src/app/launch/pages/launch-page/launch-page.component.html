@@ -1,20 +1,32 @@
-<div class="content-wrapper">
-  <div class="header">
-    <img
-      class="header__icon"
-      src="assets/images/icons/back-icon.svg"
-      alt="Back"
-      routerLink="/home"
-    />
-    <p class="header__title">Launch <span>#31</span> Details</p>
+<ng-container *ngIf="data$ | async as data"
+  ><div class="content-wrapper">
+    <div class="header">
+      <img
+        class="header__icon"
+        src="assets/images/icons/back-icon.svg"
+        alt="Back"
+        routerLink="/home"
+      />
+      <p class="header__title">Launch <span>#31</span> Details</p>
+    </div>
+    <div class="line"></div>
+    <app-launch-details
+      [launch]="launch"
+      [rocket]="data[0]"
+      [launchpad]="data[1]"
+    ></app-launch-details>
+    <app-photo-gallery
+      *ngIf="data[0]?.flickr_images"
+      [images]="{
+        rocketImg: data[0].flickr_images,
+        launchImg: launch.links.patch,
+        launchpadImg: data[1].images
+      }"
+    ></app-photo-gallery>
+
+    <app-launch-description
+      *ngIf="launch?.details && data[0]?.description && data[1]?.details"
+      [description]="[launch.details, data[0].description, data[1].details]"
+    ></app-launch-description>
   </div>
-  <div class="line"></div>
-  <app-launch-details
-  
-   [launch]="launch" [rocket]="rocket" [launchpad]="launchpad"></app-launch-details>
-  <app-photo-gallery
-    *ngIf="rocket?.flickr_images"
-    [images]="rocket.flickr_images"
-  ></app-photo-gallery>
-  <app-launch-description></app-launch-description>
-</div>
+</ng-container>

@@ -13,6 +13,10 @@ html {
 body {
   font-family: "Poppins" !important;
   background-color: rgb(231, 231, 231);
+  background-image: url("assets/images/rocket.png");
+  background-repeat: no-repeat;
+  background-size: 600px 600px;
+  background-position: right top;
 }
 h1 {
   font-size: 2.2em;
@@ -36,8 +40,12 @@ h5 {
 
 p {
   font-size: 1.2em;
+  margin: 0;
 }
-
+a {
+  text-decoration: none;
+  color: black;
+}
 html,
 body {
   height: 100%;

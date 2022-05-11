@@ -10,6 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { LaunchesEffects } from './store/launches.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers } from './store';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { reducers } from './store';
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([LaunchesEffects]),
     StoreDevtoolsModule.instrument(),
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

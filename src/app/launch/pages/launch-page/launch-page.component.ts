@@ -3,7 +3,7 @@ import { Rocket } from './../../../shared/models/rocket.model';
 import { LaunchingService } from './../../../shared/services/launching.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map, tap, switchMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { Launch } from 'src/app/shared/models/launch.model';
 import { forkJoin, Observable } from 'rxjs';
 
@@ -13,17 +13,18 @@ import { forkJoin, Observable } from 'rxjs';
   styleUrls: ['./launch-page.component.scss'],
 })
 export class LaunchPageComponent implements OnInit {
+  
   launchId!: string;
   launch!: Launch;
-  rocket!: Rocket;
-  launchpad!: Launchpad;
+  data$!: Observable<[Rocket, Launchpad]>;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private launchingService: LaunchingService
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params
+    this.data$ = this.activatedRoute.params
       .pipe(
         switchMap((params) => {
           return this.launchingService.getLaunchById(params.id);
@@ -37,10 +38,6 @@ export class LaunchPageComponent implements OnInit {
             this.launchingService.getLaunchpadById(launch.launchpad),
           ]);
         })
-      )
-      .subscribe(([rocket, launchpad]) => {
-        this.rocket = rocket;
-        this.launchpad = launchpad;
-      });
+      );
   }
 }

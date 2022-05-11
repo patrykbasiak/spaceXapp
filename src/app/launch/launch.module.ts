@@ -6,18 +6,15 @@ import { LaunchPageComponent } from './pages/launch-page/launch-page.component';
 import { LaunchDetailsComponent } from './components/launch-details/launch-details.component';
 import { PhotoGalleryComponent } from './components/photo-gallery/photo-gallery.component';
 import { LaunchDescriptionComponent } from './components/launch-description/launch-description.component';
-
+import { GalleryModule } from 'ng-gallery';
 
 @NgModule({
   declarations: [
     LaunchPageComponent,
     LaunchDetailsComponent,
     PhotoGalleryComponent,
-    LaunchDescriptionComponent
+    LaunchDescriptionComponent,
   ],
-  imports: [
-    CommonModule,
-    LaunchRoutingModule
-  ]
+  imports: [CommonModule, LaunchRoutingModule, GalleryModule],
 })
-export class LaunchModule { }
+export class LaunchModule {}

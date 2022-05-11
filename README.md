@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.3.
 App uses spaceX-API to show information about spaceX rockets launches. 
 Technologies and tools used:
-* Angular 12 as framrwork
+* Angular 12 as framework
 * NgRx
 * RxJS
 * Angular Material

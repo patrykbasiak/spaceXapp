@@ -26,8 +26,6 @@ export class LaunchesListComponent implements OnInit {
   handlePageEvent(event: PageEvent) {
     this.pageSize = event.pageSize;
     this.pageIndex = event.pageIndex;
-    console.log(event);
-
     this.store.dispatch(
       getAllLaunches({ page: event.pageIndex + 1, size: this.pageSize })
     );

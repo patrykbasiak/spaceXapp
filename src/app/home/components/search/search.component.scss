@@ -1,14 +1,21 @@
+@import "/src/app/shared/styles/mixins.scss";
 .form-container {
   margin-top: 3rem;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  @include lg {
+    flex-direction: column;
+  }
   &__inputs {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 60%;
+    @include lg {
+      flex-direction: column;
+    }
   }
   button {
     margin: 0 0.5rem;

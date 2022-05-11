@@ -1,10 +1,12 @@
-h1 {
+@import "/src/app/shared/styles/mixins.scss";
+
+.heading {
   font-weight: bold;
   font-size: 3rem;
   position: relative;
   margin: 2rem 0;
-  span{
-      color: #6f3bb8;
+  span {
+    color: $secondary-color;
   }
   &::before {
     content: "";
@@ -12,9 +14,15 @@ h1 {
     width: 50px;
     height: 4px;
     top: -10px;
-    background-color: #6f3bb8;
+    background-color: $secondary-color;
+  }
+  @include md {
+    text-align: center;
   }
 }
-p {
+.description {
   color: rgb(116, 116, 116);
+  @include md {
+    text-align: center;
+  }
 }

@@ -1,3 +1,4 @@
+import { PhotoGalleryService } from './photo-gallery.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { GalleryItem, ImageItem } from 'ng-gallery';
 
@@ -14,21 +15,9 @@ export interface ImageInput {
 export class PhotoGalleryComponent implements OnInit {
   @Input() images!: ImageInput;
   imageItems!: GalleryItem[];
-  constructor() {}
+  constructor(private photoService: PhotoGalleryService) {}
 
   ngOnInit(): void {
-    this.imageItems = this.getImagesArray(this.images);
-  }
-  getImagesArray(images: ImageInput): ImageItem[] {
-    const imgOutput = [...images.rocketImg, images.launchImg.large];
-    images.launchpadImg.large.forEach((image) => {
-      imgOutput.push(image);
-    });
-    const imagesArray: ImageItem[] = [];
-    imgOutput.forEach((image) => {
-      imagesArray.push(new ImageItem({ src: image, thumb: image }));
-    });
-
-    return imagesArray;
+    this.imageItems = this.photoService.getImagesArray(this.images);
   }
 }

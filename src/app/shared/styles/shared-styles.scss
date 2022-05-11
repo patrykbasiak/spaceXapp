@@ -1,5 +1,13 @@
+@import "./mixins.scss";
 .content-wrapper {
   margin: 2rem 10%;
+
+  @include md {
+    margin: 0.5rem 20px;
+  }
+  @include lg {
+    margin: 1rem 20px;
+  }
   .header {
     margin-bottom: 1rem;
     display: flex;
@@ -18,7 +26,7 @@
       font-size: 2rem;
       margin: 0 !important;
       span {
-        color: #6f3bb8;
+        color: $secondary-color;
         font-weight: bold;
       }
     }
@@ -43,5 +51,5 @@
   }
 }
 .mat-paginator-container {
-  background-color: #e7e7e7;
+  background-color: $primary-color;
 }

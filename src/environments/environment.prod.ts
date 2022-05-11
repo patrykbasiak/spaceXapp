@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  spaceXurl: 'https://api.spacexdata.com/v4',
 };

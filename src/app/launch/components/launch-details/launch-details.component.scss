@@ -1,7 +1,12 @@
+@import "/src/app/shared/styles/mixins.scss";
+
 .details-wrapper {
   width: 100%;
   margin: 3rem 0;
   display: flex;
+  @include md {
+    flex-direction: column;
+  }
   .container {
     margin: 2rem;
     display: flex;
@@ -9,6 +14,9 @@
     width: 50%;
     padding: 2rem;
     border-radius: 1rem;
-    background-color:#cacaca5e ;
+    background-color: #cacaca5e;
+    @include md {
+      width: auto;
+    }
   }
 }

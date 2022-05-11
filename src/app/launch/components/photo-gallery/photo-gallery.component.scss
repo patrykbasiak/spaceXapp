@@ -1,12 +1,16 @@
+@import "/src/app/shared//styles/mixins.scss";
 .gallery-wrapper {
   margin: 3rem 2rem;
   padding: 2rem;
   border-radius: 1rem;
+  @include md {
+    margin: 1rem 0;
+  }
 }
 gallery {
-  background-color: #e7e7e700;
+  background-color: transparent;
 }
 
 ::ng-deep gallery-nav svg {
-  background-color: rgb(173, 173, 173)!important;
+  background-color: rgb(173, 173, 173) !important;
 }

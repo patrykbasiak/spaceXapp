@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,100;1,400&display=swap");
 @import "./app/shared/styles/shared-styles.scss";
-
+@import "./app/shared/styles/variable.scss";
+@import "./app/shared/styles/mixins.scss";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,12 +12,21 @@ html {
   scroll-behavior: smooth;
 }
 body {
+  min-width: 400px;
   font-family: "Poppins" !important;
-  background-color: rgb(231, 231, 231);
+  background-color: $primary-color;
   background-image: url("assets/images/rocket.png");
   background-repeat: no-repeat;
   background-size: 600px 600px;
-  background-position: right top;
+  background-position: 95% 10%;
+  background-attachment: fixed;
+  @include lg {
+    background-size: 200px 200px;
+    background-position: 95% 5%;
+  }
+  @include md {
+    background-image: none;
+  }
 }
 h1 {
   font-size: 2.2em;
@@ -53,4 +63,18 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #dcdcdc;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #dcdcdc;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgb(0, 0, 0);
+  background-color: rgb(82, 82, 82);
 }

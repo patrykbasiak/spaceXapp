@@ -10,7 +10,7 @@ Technologies and tools used:
 * Lazy Loading
 * Scss
 ## Online App
-https://space-x-launch.netlify.app/home
+https://app-space-x.netlify.app/
 ## Development serve
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
